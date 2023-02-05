@@ -116,6 +116,12 @@ def bitwise_xor(x1, x2):
 
 
 @to_ivy_arrays_and_back
+def logical_or(x1, x2):
+    x1, x2 = promote_jax_arrays(x1, x2)
+    return ivy.logical_xor(x1, x2)
+
+
+@to_ivy_arrays_and_back
 def any(a, axis=None, out=None, keepdims=False, *, where=None):
     # TODO: Out not supported
     ret = ivy.any(a, axis=axis, keepdims=keepdims)
